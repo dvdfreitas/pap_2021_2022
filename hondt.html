@@ -1,0 +1,36 @@
+﻿<html>
+    <head>
+        <title>Método de Hondt</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <div class="border rounded max-w-xl m-auto my-4 p-4">
+            <div class="flex">
+                <p class="text-xl mx-4 w-1/2">Número de partidos</p>
+                <input type="text" 
+                    id="n_partidos" 
+                    name="n_partidos"                    class="p-2 bg-blue-50 rounded"
+                    
+                >
+            </div>  
+            <button 
+                class="mt-4 border bg-red-400 p-4 text-xl rounded hover:bg-red-500 shadow text-white w-full m-auto"
+                onclick="defineTotalPartidos()">Calcular
+            </button>
+            <div class="mt-8">  
+                <p class="text-2xl">Resultados</p>
+                <p id="resultado" class="bg-green-100"></p>
+                <input type="text" id="resultado_text" disabled>
+            </div>
+        </div>
+        <script>
+            function defineTotalPartidos() {
+                let n_partidos = parseInt(document.getElementById("n_partidos").value);
+                n_partidos = n_partidos + n_partidos;
+                document.getElementById("resultado").innerHTML = n_partidos;
+                document.getElementById("resultado_text").value = n_partidos;
+            }
+
+        </script>
+    </body>
+</html> 
