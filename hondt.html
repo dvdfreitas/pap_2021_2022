@@ -10,7 +10,7 @@
                 <input type="text" 
                     id="n_partidos" 
                     name="n_partidos"                    class="p-2 bg-blue-50 rounded"
-                    
+                    4
                 >
             </div>  
             <button 
@@ -22,13 +22,21 @@
                 <p id="resultado" class="bg-green-100"></p>
                 <input type="text" id="resultado_text" disabled>
             </div>
+            <div id="resultados_partidos">
+
+            </div>
         </div>
         <script>
             function defineTotalPartidos() {
                 let n_partidos = parseInt(document.getElementById("n_partidos").value);
-                n_partidos = n_partidos + n_partidos;
-                document.getElementById("resultado").innerHTML = n_partidos;
-                document.getElementById("resultado_text").value = n_partidos;
+
+                for (let i=0; i<n_partidos; i++) {
+                    var input = document.createElement("input");
+                    input.type = "text";
+                    input.id = "resultado_partido" + i;
+                    input.className = "my-2 mx-24 p-2 bg-indigo-400 text-white text-4xl"; 
+                    document.getElementById("resultados_partidos").appendChild(input); 
+                }
             }
 
         </script>
