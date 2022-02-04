@@ -25,17 +25,32 @@
             <div id="resultados_partidos">
 
             </div>
+            <div id="button_calcular" class="hidden">
+                <button class="bg-red-400 text-white p-2 border hover:shadow hover:bg-red-500 rounded px-4" onclick="alert('bom dia')">Não carregar!</button>
+            </div>
         </div>
         <script>
             function defineTotalPartidos() {
                 let n_partidos = parseInt(document.getElementById("n_partidos").value);
 
                 for (let i=0; i<n_partidos; i++) {
+                    // 
+                    var div_partido = document.createElement("div");
+                    div_partido.className = "flex p-2 border my-2";
+                    document.getElementById("resultados_partidos").appendChild(div_partido); 
+
+                    // Criação da label
+                    var label_partido = document.createElement("p");
+                    label_partido.innerHTML = "Partido " + (i+1);
+                    label_partido.className = "text-xl"; 
+                    div_partido.appendChild(label_partido); 
+
+                    // Criação do input
                     var input = document.createElement("input");
                     input.type = "text";
                     input.id = "resultado_partido" + i;
-                    input.className = "my-2 mx-24 p-2 bg-indigo-400 text-white text-4xl"; 
-                    document.getElementById("resultados_partidos").appendChild(input); 
+                    input.className = "my-2 mx-4 p-2 bg-indigo-300 text-white"; 
+                    div_partido.appendChild(input); 
                 }
             }
 
