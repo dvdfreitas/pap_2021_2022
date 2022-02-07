@@ -25,13 +25,28 @@
             <div id="resultados_partidos">
 
             </div>
-            <div id="button_calcular" class="hidden">
-                <button class="bg-red-400 text-white p-2 border hover:shadow hover:bg-red-500 rounded px-4" onclick="alert('bom dia')">Não carregar!</button>
+            <div id="button_calcular">
+                <button class="bg-red-400 text-white p-2 border hover:shadow hover:bg-red-500 rounded px-4" onclick="hondt()">Distribuir mandatos</button>
             </div>
         </div>
         <script>
+
+            let n_partidos;
+
+            document.getElementById('button_calcular').style.visibility = 'hidden';
+
+            function hondt() {
+                
+                let total = 0;
+                for (let i=0; i<n_partidos; i++)
+                    total += parseInt(document.getElementById("resultado_partido" + i).value);
+                alert(total);                
+            }
+
             function defineTotalPartidos() {
-                let n_partidos = parseInt(document.getElementById("n_partidos").value);
+                n_partidos = parseInt(document.getElementById("n_partidos").value);
+
+                document.getElementById('button_calcular').style.visibility = 'visible';
 
                 for (let i=0; i<n_partidos; i++) {
                     // 
